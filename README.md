@@ -1,11 +1,11 @@
 <p align="center">
-  <img src="https://img.shields.io/github/stars/thyagoaraujom/WatchMe?label=stars&message=MIT&color=8257E5&labelColor=000000" alt="Stars">
+  <img src="https://img.shields.io/github/stars/thyagoaraujom/Carrinho-de-compras?label=stars&message=MIT&color=8257E5&labelColor=000000" alt="Stars">
 
   <img  src="https://img.shields.io/static/v1?label=license&message=MIT&color=8257E5&labelColor=000000" alt="License">   
 </p>
 
 <h1 align="center">
-    <img alt="to-do-simples" src="./github/watchme.gif" />
+    <img alt="to-do-simples" src="./github/carrinho-de-compras.gif" />
 </h1>
 
 <br>
@@ -16,17 +16,25 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 - [React](https://reactjs.org)
 - [TypeScript](https://www.typescriptlang.org/)
+- [JSON-Server](https://github.com/typicode/json-server)
 
 ## 💻 Projeto
 
-Um simpês catalogo de filmes.
+Um simples carrinho de compras, utilizando boas práticas e context api, utilizando um fake back end com json server para verificação de estoque dos items. Tendo as funcionalidades de:
+
+- Adicionar um novo item ao carrinho
+- Remover o item
+- Aumentar e diminuir a quantidade de items
+- Verificação de items no estoque
+
+</br>
 
 ## 🚀 Como executar
 
 Clone o projeto e acesse a pasta do mesmo.
 
 ```bash
-$ git clone https://github.com/ThyagoAraujoM/to-do-simples.git
+$ git clone https://github.com/ThyagoAraujoM/Carrinho-de-compras.git
 ```
 
 Para iniciá-lo, siga os passos abaixo:

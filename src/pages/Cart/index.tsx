@@ -19,25 +19,27 @@ interface Product {
 const Cart = (): JSX.Element => {
   const { cart, removeProduct, updateProductAmount } = useCart();
 
+  const cartFormatted = cart.map((product) => ({
+    ...product,
+    priceFormatted: formatPrice(product.price),
+    subTotal: formatPrice(product.price * product.amount),
+  }));
+
   const total = formatPrice(
     cart.reduce((sumTotal, product) => {
-      sumTotal += product.price * product.amount;
-      return sumTotal;
+      return (sumTotal += product.price * product.amount);
     }, 0)
   );
 
   function handleProductIncrement(product: Product) {
-    // TODO
-    updateProductAmount({ productId: product.id, amount: product.amount });
+    updateProductAmount({ productId: product.id, amount: product.amount + 1 });
   }
 
   function handleProductDecrement(product: Product) {
-    // TODO
-    updateProductAmount({ productId: product.id, amount: product.amount - 2 });
+    updateProductAmount({ productId: product.id, amount: product.amount - 1 });
   }
 
   function handleRemoveProduct(productId: number) {
-    // TODO
     removeProduct(productId);
   }
 
@@ -54,15 +56,15 @@ const Cart = (): JSX.Element => {
           </tr>
         </thead>
         <tbody>
-          {cart.map((product) => {
+          {cartFormatted.map((product) => {
             return (
-              <tr data-testid='product'>
+              <tr key={product.id} data-testid='product'>
                 <td>
                   <img src={product.image} alt={product.title} />
                 </td>
                 <td>
                   <strong>{product.title}</strong>
-                  <span>{formatPrice(product.price)}</span>
+                  <span>{product.priceFormatted}</span>
                 </td>
                 <td>
                   <div>
@@ -88,7 +90,7 @@ const Cart = (): JSX.Element => {
                   </div>
                 </td>
                 <td>
-                  <strong>{formatPrice(product.amount * product.price)}</strong>
+                  <strong>{product.subTotal}</strong>
                 </td>
                 <td>
                   <button
